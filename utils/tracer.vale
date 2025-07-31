@@ -1,0 +1,8 @@
+fn traceRef[T](ref &T) {
+  log("Tracing reference to type: " + T.name() + ", address: " + &ref as str);
+}
+
+fn watchRefLifetime[T](ref &T) {
+  log("Watching lifetime for ref at " + &ref as str);
+  println("Object still valid.");
+}

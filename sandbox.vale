@@ -1,0 +1,13 @@
+import allocator;
+import logger;
+
+fn runUAFSimulation() {
+  println("[!] Simulating Use-After-Free...");
+  let buffer = safeMalloc(1);
+  *buffer = 99;
+  safeFree(buffer);
+
+  println("[!] Trying to read freed memory...");
+  let ghostRead = *buffer;
+  log("[!] Read after free: value = " + ghostRead.str());
+}

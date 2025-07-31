@@ -1,0 +1,25 @@
+struct AllocStats {
+  totalAllocs: int,
+  totalFrees: int,
+}
+
+var stats = AllocStats(0, 0);
+
+fn safeMalloc(size int) -> *int {
+  let ptr = alloc(size);
+  stats.totalAllocs = stats.totalAllocs + 1;
+  log("Allocated " + size.str() + " bytes at " + ptr as str);
+  return ptr;
+}
+
+fn safeFree(ptr *int) {
+  dealloc(ptr);
+  stats.totalFrees = stats.totalFrees + 1;
+  log("Freed memory at " + ptr as str);
+}
+
+fn showAllocatorStats() {
+  println("== Allocator Statistics ==");
+  println("Total Allocations: " + stats.totalAllocs.str());
+  println("Total Frees: " + stats.totalFrees.str());
+}

@@ -1,0 +1,15 @@
+struct GuardedBlock {
+  data: [int],
+  canary: int,
+}
+
+fn createGuardedBlock(size int) -> GuardedBlock {
+  return GuardedBlock([0; size], 0xDEADBEEF);
+}
+
+fn safeAccess(block GuardedBlock, index int) -> int {
+  if (block.canary != 0xDEADBEEF) {
+    panic("Canary mismatch: possible memory corruption!");
+  }
+  return block.data[index];
+}

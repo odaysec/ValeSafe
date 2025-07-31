@@ -1,0 +1,3 @@
+fn traceRef[T](ref &T) {
+  log("Reference trace: type=" + T.name() + ", address=" + &ref as str);
+}

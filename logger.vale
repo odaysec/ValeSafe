@@ -1,0 +1,11 @@
+fn log(msg str) {
+  println("[LOG] " + msg);
+}
+
+fn logRead(ptr *int) {
+  println("[READ] Accessed memory at: " + ptr as str);
+}
+
+fn logWrite(ptr *int, val int) {
+  println("[WRITE] Wrote " + val.str() + " to memory at: " + ptr as str);
+}

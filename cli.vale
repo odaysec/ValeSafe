@@ -1,0 +1,17 @@
+import allocator;
+import logger;
+
+fn input() str {
+  println("> ");
+  return readline();
+}
+
+fn startLiveWatcher() {
+  println("[Live Watcher] Monitoring memory access...");
+  let mem = safeMalloc(4);
+  logWrite(mem, 42);
+  let val = *mem;
+  logRead(mem);
+  println("Value = " + val.str());
+  safeFree(mem);
+}

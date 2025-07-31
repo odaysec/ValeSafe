@@ -1,0 +1,21 @@
+fn main() {
+  println("== ValeSafe - Memory Safety Toolkit ==");
+  println("1. Run Static Analyzer");
+  println("2. Start Live Watcher");
+  println("3. Simulate UAF");
+  println("4. Show Allocator Info");
+  println("Choose option:");
+
+  let input = input();
+  if (input == "1") {
+    runStaticAnalyzer();
+  } else if (input == "2") {
+    startLiveWatcher();
+  } else if (input == "3") {
+    runUAFSimulation();
+  } else if (input == "4") {
+    showAllocatorStats();
+  } else {
+    println("Invalid option.");
+  }
+}

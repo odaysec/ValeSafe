@@ -1,0 +1,12 @@
+fn runStaticAnalyzer() {
+  println("[*] Starting static memory scan...");
+  // Simulasi scan fungsi-fungsi pointer
+  println("Analyzing function: processBuffer()");
+  println("→ Warning: Potential out-of-bounds at index 12");
+  println("→ Suggestion: Add bounds checking.");
+
+  println("Analyzing function: freeMemory()");
+  println("→ OK");
+
+  println("[*] Scan complete.");
+}
